@@ -1,0 +1,46 @@
+<div class="attributes flexcolumn">
+    <div class="attribute health">
+        <header>Health</header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.hp.current"
+                   value="{attributes.hp.current}" placeholder="10"/>
+            <span> / </span>
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.hp.max"
+                   value="{attributes.hp.max}" placeholder="10"/>
+        </div>
+        <footer>
+            <input class="ftc-edit" type="text" tabindex="0" data-edit="attributes.hp.formula" data-dtype="str"
+                   value="{attributes.hp.formula}" placeholder="Formula"/>
+        </footer>
+    </div>
+
+    <div class="attribute armor">
+        <header>{attributes.ac.name}</header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.ac.current"
+                   value="{attributes.ac.current}" placeholder="{attributes.ac.base}"/>
+        </div>
+        <footer>Base AC {attributes.ac.base}</footer>
+    </div>
+</div>
+<div class="attributes flexcolumn">
+    <div class="attribute saves">
+        <header>Saving Throws</header>
+        <div class="saves-list">
+            <ol class="saves-list">
+                <li class="saving-throw save-fort" data-save="fort">
+                    <label class="ftc-rollable">Fortitude</label>
+                    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="saves.fort.current" value="{saves.fort.current}" />
+                </li>
+                <li class="saving-throw save-reflex" data-save="reflex">
+                    <label class="ftc-rollable">Reflex</label>
+                    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="saves.reflex.current" value="{saves.reflex.current}" />
+                </li>
+                <li class="saving-throw save-will" data-save="will">
+                    <label class="ftc-rollable">Will</label>
+                    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="saves.will.current" value="{saves.will.current}" />
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

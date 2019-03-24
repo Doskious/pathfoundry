@@ -1,0 +1,6 @@
+<li class="skill skill-{skill} {usable}t-usable {tools}-tools trained-{trainedOnly}-{ranks} value-{value}-value" data-skill="{skill}">
+	<input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.{skill}.value" value="{value}" />
+    <input type="checkbox" class="ftc-checkbox" data-edit="skills.{skill}.classSkill" value="{classSkill}" {% checked-if classSkill%} />
+	<label class="ftc-rollable">{name}</label> <span class="skill-ability">{attribute}</span>
+	<span class="skill-mod">({modstr})</span>
+</li>

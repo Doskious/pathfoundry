@@ -1,0 +1,103 @@
+<form class="item-form weapon">
+
+    <div role="group" class="form-group flexrow">
+        <label>Weapon Type</label>
+        <select class="ftc-select item-variety" data-edit="type.current" data-selected="{type.current}">
+            <option value=""></option>
+            <option value="simplem">Simple Melee</option>
+            <option value="simpler">Simple Ranged</option>
+            <option value="martialm">Martial Melee</option>
+            <option value="martialr">Martial Ranged</option>
+            <option value="natural">Natural</option>
+            <option value="improv">Improvised</option>
+            <option value="ammo">Ammunition</option>
+        </select>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Offensive Ability</label>
+        <select class="ftc-select" data-edit="modifier.current" data-selected="{modifier.current}">
+            <option value=""></option>
+            <option value="str">Strength</option>
+            <option value="dex">Dexterity</option>
+            <option value="con">Constitution</option>
+            <option value="int">Intelligence</option>
+            <option value="wis">Wisdom</option>
+            <option value="cha">Charisma</option>
+        </select>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{hit.name}</label>
+        <input type="text" class="ftc-edit weapon-hit" tabindex="0" data-edit="hit.current"
+               value="{hit.current}" placeholder="+0"/>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{damage.name}</label>
+        <input type="text" class="ftc-edit weapon-d1" tabindex="0" data-edit="damage.current"
+               value="{damage.current}" placeholder="Formula"/>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Damage Type</label>
+        <select class="ftc-select weapon-d1type" data-edit="damage.type" data-selected="{damage.type}">
+            <option value=""></option>
+            <option value="acid">Acid</option>
+            <option value="bludgeoning">Bludgeoning</option>
+            <option value="cold">Cold</option>
+            <option value="fire">Fire</option>
+            <option value="force">Force</option>
+            <option value="lightning">Lightning</option>
+            <option value="necrotic">Negative</option>
+            <option value="piercing">Piercing</option>
+            <option value="psychic">Psychic</option>
+            <option value="radiant">Positive</option>
+            <option value="slashing">Slashing</option>
+            <option value="thunder">Sonic</option>
+        </select>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{damage2.name}</label>
+        <input type="text" class="ftc-edit weapon-d2" tabindex="0" data-edit="damage2.current"
+               value="{damage2.current}" placeholder="Formula"/>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Alternate Type</label>
+        <select class="ftc-select weapon-d2type" data-edit="damage2.type" data-selected="{damage2.type}">
+            <option value=""></option>
+            <option value="acid">Acid</option>
+            <option value="bludgeoning">Bludgeoning</option>
+            <option value="cold">Cold</option>
+            <option value="fire">Fire</option>
+            <option value="force">Force</option>
+            <option value="lightning">Lightning</option>
+            <option value="necrotic">Negative</option>
+            <option value="piercing">Piercing</option>
+            <option value="psychic">Psychic</option>
+            <option value="radiant">Positive</option>
+            <option value="slashing">Slashing</option>
+            <option value="thunder">Sonic</option>
+        </select>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{range.name}</label>
+        <input type="text" class="ftc-edit weapon-range" tabindex="0" data-edit="range.current"
+               value="{range.current}" placeholder="5 ft."/>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{properties.name}</label>
+        <input type="text" class="ftc-edit weapon-properties" tabindex="0" data-edit="properties.current"
+               value="{properties.current}" placeholder="-"/>
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>{proficient.name}</label>
+        <input type="checkbox" class="ftc-checkbox weapon-proficient" data-edit="proficient.current"
+               value="{proficient.current}" />
+    </div>
+</form>

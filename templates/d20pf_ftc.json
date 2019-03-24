@@ -1,0 +1,345 @@
+{
+  "info": {
+    "name": {
+      "current": "Pathfinder Foundry Adaptation"
+    },
+    "img": {
+      "current": "/content/ftclogo.png"
+    }
+  },
+  "identifier": "d20pf_ftc",
+  "build": "v2",
+  "version": 2,
+  "initiative": {
+    "query": "d20 + M@dex + R@initiative + (R@dex / 100)",
+    "compare": "(@i1.total>@i2.total)?(1):(@i1.total==@i2.total?(0):(-1))"
+  },
+  "actors": {
+    "Character": {},
+    "NPC": {}
+  },
+  "elements": {
+    "Item": {},
+    "Spell": {},
+    "Weapon": {},
+    "Armor": {},
+    "Feat": {},
+    "Tool": {},
+    "Consumable": {}
+  },
+  "page": {
+    "_t": "p",
+    "info": {
+      "name": {
+        "name": "Name",
+        "current": "Default Page"
+      },
+      "img": {
+        "name": "Art"
+      },
+      "notes": {
+        "name": "Notes"
+      },
+      "mode": {
+        "name": "Mode"
+      }
+    }
+  },
+  "security": {
+    "player": {
+      "Game Master": 1,
+      "Assistant Master": 2,
+      "Trusted Player": 3,
+      "Player": 4,
+      "Spectator": 5
+    },
+    "object": {
+      "Default Access": 0,
+      "Owner": 1,
+      "Rights": 2,
+      "Visible": 3,
+      "Deny": 4
+    }
+  },
+  "constants": {},
+  "tables": {},
+  "tags": {},
+  "dice": {
+    "defaults": [ "d20", "d4", "d6", "d8", "d10", "d12"],
+    "modifiers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "keys": {},
+    "pool": {
+      "d4": {
+        "value": "d4"
+      },
+      "d6": {
+        "value": "d6"
+      },
+      "d8": {
+        "value": "d8"
+      },
+      "d10": {
+        "value": "d10"
+      },
+      "d12": {
+        "value": "d12"
+      },
+      "d20": {
+        "value": "d20"
+      },
+      "d100": {
+        "value": "d100"
+      }
+    }
+  },
+  "display": {
+    "actors": {
+      "Character": {
+        "content": "<ui name='PFTC_RENDER_ACTOR'/>",
+        "health": "attributes.hp"
+      },
+      "NPC": {
+        "content": "<ui name='PFTC_RENDER_ACTOR'/>",
+        "health": "attributes.hp"
+      }
+    },
+    "elements": {
+      "Armor": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Consumable": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Feat": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Item": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Spell": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Tool": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      },
+      "Weapon": {
+        "content": "<ui name='PFTC_RENDER_ELEMENT'/>"
+      }
+    },
+    "ui": {
+      "ui_poolResults": {
+        "classes": "flexrow flexaround",
+        "dice": {
+          "width": "30px",
+          "height": "30px"
+        },
+        "results": {
+          "style": {
+            "width": "50%",
+            "background-color": "grey"
+          },
+          "display": {
+            "classes": "flexrow flexaround flex",
+            "display": [
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.s-@pool.f)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/success.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.s-@pool.f)"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.f-@pool.s)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/failure.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.f-@pool.s)"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.a-@pool.t)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/advantage.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.a-@pool.t)"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.t-@pool.a)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/threat.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.t-@pool.a)"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "@pool.tri>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/triumph.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+@pool.tri"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "@pool.des>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/despair.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+@pool.des"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.light-@pool.dark)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/lightside.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.light-@pool.dark)"
+                  }
+                ]
+              },
+              {
+                "classes": "flexmiddle",
+                "cond": "(@pool.dark-@pool.light)>0",
+                "ui": "ui_icon",
+                "scope": {
+                  "image": "/content/dice/darkside.png"
+                },
+                "display": [
+                  {
+                    "style": {
+                      "font-weight": "bold"
+                    },
+                    "value": "'x'+(@pool.dark-@pool.light)"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "display": {
+          "classes": "outline lrpadding flexrow flexmiddle flexwrap flex"
+        }
+      }
+    }
+  },
+  "effects": {
+    "dmg": {
+      "name": "Take Damage",
+      "submenu": {
+        "x1": {
+          "name": "Normal",
+          "msg": "@pName : Applied @total damage",
+          "calc": [
+            {
+              "eq": "@c.attributes.hp.current-(@total)_0",
+              "target": "attributes.hp"
+            }
+          ]
+        },
+        "x2": {
+          "name": "x2",
+          "msg": "@pName : Applied (@total x2) damage",
+          "calc": [
+            {
+              "eq": "@c.attributes.hp.current - (@total * 2)_0",
+              "target": "attributes.hp"
+            }
+          ]
+        },
+        "half": {
+          "name": "Half",
+          "msg": "@pName : Applied (@total /2) damage",
+          "calc": [
+            {
+              "eq": "@c.attributes.hp.current - @:int((@total/2)_0)",
+              "target": "attributes.hp"
+            }
+          ]
+        }
+      }
+    },
+    "heal": {
+      "name": "Heal",
+      "msg": "@pName : Applied @total healing",
+      "calc": [
+        {
+          "eq": "@c.attributes.hp.current + (@total)_0",
+          "target": "attributes.hp"
+        }
+      ]
+    }
+  },
+  "grid": {
+    "unitScale": 5,
+    "unit": "ft"
+  },
+  "actions": {}
+}

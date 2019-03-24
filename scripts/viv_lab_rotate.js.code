@@ -1,0 +1,51 @@
+function AoeCircle( radius, x, y ) {
+    "object" == typeof radius && (x = radius.x || x || 0, y = radius.y || y || 0, radius = radius.radius || 0);
+    this.radius = radius;
+    this.x = x;
+    this.y = y;
+    this.contains = function( x, y ) {
+        let result = false;
+        "object" == typeof x && ( (x.h && x.w && (y = x.y + (x.w/2.0), x = x.x + (x.h/2.0)) ) || (true && (y = x.y || 0, x = x.x || 0) ) );
+        if (Math.sqrt((this.x - x)**2 + (this.y - y)**2) <= this.radius) {
+            result = true;
+        }
+        return result;
+    }
+}
+
+(function(){
+    let obj = findByProperty(window.game.entities.data, "data.info.name.current", "Vivified Labyrinth"),
+        pLayer = findByProperty(obj.data.layers, "n", "Player Layer"),
+        pLayerId = obj.data.layers.indexOf(pLayer),
+        rotRad = 350;
+
+    let rotateAbout = [
+        {aoe: new AoeCircle({x: 400, y: 1600, radius: rotRad}), d: "ccw"},
+        {aoe: new AoeCircle({x: 1100, y: 900, radius: rotRad}), d: "ccw"},
+        {aoe: new AoeCircle({x: 400, y: 900, radius: rotRad}), d: "cw"},
+        {aoe: new AoeCircle({x: 1100, y: 1600, radius: rotRad}), d: "cw"}
+    ];
+
+    $.each(withProperty(pLayer.p, "eID"), function(index, piece) {
+        let pieceId = pLayer.p.indexOf(piece);
+        $.each(rotateAbout, function(index, aoeDef) {
+            let pPos = $.extend({}, piece);
+            pPos.x += (pPos.w/2.0);
+            pPos.y += (pPos.h/2.0);
+            if (aoeDef.aoe.contains(piece)) {
+                let relPos = {x: aoeDef.aoe.x - pPos.x, y: aoeDef.aoe.y - pPos.y};
+                let newRelPos = {};
+                if (aoeDef.d === "cw") {
+                    newRelPos = {x: -1*relPos.y, y: relPos.x};
+                } else {  // ccw
+                    newRelPos = {x: relPos.y, y: -1*relPos.x};
+                }
+                let newPos = {x: aoeDef.aoe.x - newRelPos.x - (pPos.w/2.0), y: aoeDef.aoe.y - newRelPos.y - (pPos.h/2.0)}
+                obj.data.layers[pLayerId].p[pieceId].x = newPos.x;
+                obj.data.layers[pLayerId].p[pieceId].y = newPos.y;
+                boardApi.updateObject(pLayerId, "p", pieceId, obj);
+                runCommand("boardMove", {id : obj.id(), layer : pLayerId, type : "p", index : pieceId, data : obj.data.layers[pLayerId].p[pieceId]});
+            }
+        });
+    });
+})();

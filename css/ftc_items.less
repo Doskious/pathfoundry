@@ -1,0 +1,110 @@
+h1 {
+    &.itemname {
+        width: 100%;
+        line-height: 50px;
+        margin: 0;
+    }
+    &.itemname>.ftc-edit {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* -------------------------------------------
+ 	ELEMENT SIDEBAR
+------------------------------------------- */
+
+.ftc-item {
+    header {
+        flex: 0 0 50px;
+    }
+    .ftc-sheet-sidebar {
+        flex: 0 0 150px;
+        font-size: 1.5em;
+    }
+    .ftc-sheet-profile {
+        flex: 0 0 150px;
+        margin: 0;
+    }
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.item-type {
+    flex: 0 0 40px;
+    border-bottom: 1px solid #999;
+}
+
+.item-summary {
+    flex: 0;
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0 0 5px;
+    border-bottom: 1px solid #999;
+    li{
+        label {
+            width: 50%;
+            float: left;
+        }
+        .ftc-edit {
+            width: 50%;
+            float: right;
+            text-align: right;
+        }
+    } 
+
+}
+
+.item-source.ftc-edit {
+    font-size: 18px;
+    color: #999;
+    line-height: 34px;
+}
+
+.item-tags {
+    flex: 0;
+    margin: 10px 0 0;
+    &>label {
+        display: block;
+        line-height: 24px;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        margin: 0 1em;
+    }
+    &>.ftc-edit {
+        width: 100%;
+        font-size: 18px;
+        color: #444;
+        line-height: 34px;
+        margin-bottom: 5px;
+    }
+}
+
+
+/* -------------------------------------------
+ 	ELEMENT DETAIL FORM
+------------------------------------------- */
+
+.ftc-element .item-form {
+    overflow-y: scroll;
+    padding: 0 5px 0 0;
+    margin: 5px 0;
+}
+
+/* -------------------------------------------
+ 	EDIT ITEM FORM
+------------------------------------------- */
+
+#edit-item button.fit-x {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-top: 1px solid #666;
+    border-radius: 0;
+    box-shadow: 0 0 4px #000;
+    font-weight: normal;
+    font-family: "Nodesto Caps Condensed";
+    font-size: 20px;
+    line-height: 24px;
+}

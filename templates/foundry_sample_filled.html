@@ -1,0 +1,576 @@
+<section class="ftc-sheet ftc-character flexrow">
+
+    <main class="ftc-sheet-main flexcolumn">
+        <header class="ftc-sheet-header flexrow flexwrap">
+            <h1 class="charname">
+                <input class="ftc-edit" type="text" tabindex="0" data-edit="info.name.current" value="Franklin Cho" placeholder="Name" data-initial="Franklin Cho">
+            </h1>
+
+            <div class="charlevel">
+                <h2 class="level">
+                    <label>Level</label>
+                    <input class="ftc-edit" type="text" tabindex="0" data-autosize="12" placeholder="1" data-edit="experience.level.current" value="1" data-initial="1" style="width: 24px;">
+                </h2>
+               <div class="xpbar">
+                    <span class="bar " style="width: 0%"></span>
+                </div>
+                <div class="experience">
+                    <label>XP</label>
+                    <input class="ftc-edit" type="text" tabindex="0" data-autosize="6" placeholder="0" data-edit="experience.exp.current" value="" data-initial="" style="width: 6px;">
+                    <label class="exp-next"> / 1300</label>
+                </div>
+            </div>
+
+            <ul class="ftc-sheet-subtitle flexrow">
+                <li>
+                    <input class="ftc-edit charrace" type="text" tabindex="0" data-edit="info.race.current" value="" placeholder="Race" data-initial="">
+                </li>
+                <li>
+                    <input class="ftc-edit charclass" type="text" tabindex="0" data-edit="info.class.current" value="" placeholder="Class" data-initial="">
+                </li>
+                <li>
+                    <input class="ftc-edit charback" type="text" tabindex="0" data-edit="info.background.current" value="" placeholder="Background" data-initial="">
+                </li>
+                <li>
+                    <select class="ftc-select alignment" data-edit="info.alignment.current" data-selected="">
+                        <option value="lg">Lawful Good</option>
+                        <option value="ng">Neutral Good</option>
+                        <option value="cg">Chaotic Good</option>
+                        <option value="ln">Lawful Neutral</option>
+                        <option value="tn">True Neutral</option>
+                        <option value="cn">Chaotic Neutral</option>
+                        <option value="le">Lawful Evil</option>
+                        <option value="ne">Neutral Evil</option>
+                        <option value="ce">Chaotic Evil</option>
+                    </select>
+                </li>
+            </ul>
+        </header>
+
+        <div class="attributes">
+    <div class="attribute health">
+        <header>Health</header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.hp.current" value="13" placeholder="10" data-initial="13" style="width: 33px;">
+            <span> / </span>
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.hp.max" value="13" placeholder="10" data-initial="13" style="width: 33px;">
+        </div>
+        <footer>
+            <label>Hit Dice</label>
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.hd.current" data-dtype="int" value="1" placeholder="0" data-initial="1" style="width: 22px;">
+            <span> / 1</span>
+        </footer>
+    </div>
+     <div class="attribute armor">
+        <header>Armor Class</header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="attributes.ac.current" value="" placeholder="13" data-initial="" style="width: 11px;">
+        </div>
+        <footer>Base AC 13</footer>
+    </div>
+</div>
+
+        <div class="attributes">
+    <div class="attribute resource1">
+        <header>
+           <input id="r1label" class="ftc-edit" type="text" tabindex="0" data-edit="resources.primary.label" data-dtype="str" value="" placeholder="" data-initial="">
+        </header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="resources.primary.current" value="" placeholder="0" data-initial="" style="width: 11px;">
+            <span> / </span>
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="resources.primary.max" value="" placeholder="0" data-initial="" style="width: 11px;">
+        </div>
+    </div>
+     <div class="attribute resource2">
+        <header>
+           <input id="r2label" class="ftc-edit" type="text" tabindex="0" data-edit="resources.secondary.label" data-dtype="str" value="" placeholder="" data-initial="">
+        </header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="resources.secondary.current" value="" placeholder="0" data-initial="" style="width: 11px;">
+            <span> / </span>
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" data-edit="resources.secondary.max" value="" placeholder="0" data-initial="" style="width: 11px;">
+        </div>
+    </div>
+</div>
+
+        <!-- SECONDARY TABBED CONTAINER -->
+        <div class="ftc-sheet-secondary flexcolumn">
+            <ul class="sheet-tabs" id="content-tabs">
+                <li id="tab-inventory" class="sheet-tab tab-active">Inventory</li>
+                <li id="tab-spells" class="sheet-tab">Spells</li>
+                <li id="tab-traits" class="sheet-tab">Traits</li>
+                <li id="tab-biography" class="sheet-tab">Biography</li>
+            </ul>
+
+            <!-- Character Inventory -->
+            <div id="content-inventory" class="inventory content-tab tab-active">
+                <header role="group" class="modifier-select form-group flexrow">
+                    <label>Weapon Attack Ability</label>
+                    <select class="ftc-select" data-edit="attributes.offensive.current" data-selected="str">
+                        <option value="">None</option>
+                        <option value="str" selected="selected">Strength</option>
+                        <option value="dex">Dexterity</option>
+                        <option value="con">Constitution</option>
+                        <option value="int">Intelligence</option>
+                        <option value="wis">Wisdom</option>
+                        <option value="cha">Charisma</option>
+                    </select>
+                </header>
+
+                <section class="inventory-items">
+                    <header class="inventory-currency item item-header flexrow">
+    <span class="item-name">Currency</span>
+    <div class="currency-bags flexrow">
+        <label>Platinum:</label>
+        <input class="ftc-edit currency-pp" type="text" tabindex="0" data-autosize="8" data-edit="currency.pp.current" value="" placeholder="0" data-initial="" style="width: 8px;">
+        <label>Steel:</label>
+        <input class="ftc-edit currency-gp" type="text" tabindex="0" data-autosize="8" data-edit="currency.gp.current" value="" placeholder="0" data-initial="" style="width: 8px;">
+        <label>Silver:</label>
+        <input class="ftc-edit currency-sp" type="text" tabindex="0" data-autosize="8" data-edit="currency.sp.current" value="" placeholder="0" data-initial="" style="width: 8px;">
+        <label>Copper:</label>
+        <input class="ftc-edit currency-cp" type="text" tabindex="0" data-autosize="8" data-edit="currency.cp.current" value="" placeholder="0" data-initial="" style="width: 8px;">
+    </div>
+</header>
+
+                    <header class="item item-header flexrow">
+    <span class="item-name">Weapons</span>
+    <span class="item-quantity">Qty.</span>
+    <span class="item-weight">Wgt.</span>
+    <div class="item-controls ftc-item-add">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </div>
+</header>
+
+<ol class="inventory-weapon item-list ui-sortable" data-item-type="Weapon" data-item-container="inventory">
+
+</ol>
+<header class="item item-header flexrow">
+    <span class="item-name">Equipment</span>
+    <span class="item-quantity">Qty.</span>
+    <span class="item-weight">Wgt.</span>
+    <div class="item-controls ftc-item-add">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </div>
+</header>
+
+<ol class="inventory-armor item-list ui-sortable" data-item-type="Armor" data-item-container="inventory">
+
+</ol>
+<header class="item item-header flexrow">
+    <span class="item-name">Tools</span>
+    <span class="item-quantity">Qty.</span>
+    <span class="item-weight">Wgt.</span>
+    <div class="item-controls ftc-item-add">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </div>
+</header>
+
+<ol class="inventory-tool item-list ui-sortable" data-item-type="Tool" data-item-container="inventory">
+
+</ol>
+<header class="item item-header flexrow">
+    <span class="item-name">Consumables</span>
+    <span class="item-quantity">Qty.</span>
+    <span class="item-weight">Wgt.</span>
+    <div class="item-controls ftc-item-add">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </div>
+</header>
+
+<ol class="inventory-consumable item-list ui-sortable" data-item-type="Consumable" data-item-container="inventory">
+
+</ol>
+<header class="item item-header flexrow">
+    <span class="item-name">Backpack</span>
+    <span class="item-quantity">Qty.</span>
+    <span class="item-weight">Wgt.</span>
+    <div class="item-controls ftc-item-add">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </div>
+</header>
+
+<ol class="inventory-item item-list ui-sortable" data-item-type="Item" data-item-container="inventory">
+
+</ol>
+
+                </section>
+
+                <footer class="inventory-weight ">
+                    <span class="inventory-weight-bar" style="width: 0.00%"></span>
+                    <label class="inventory-weight-label">0.00 / 75</label>
+                </footer>
+            </div>
+
+            <!-- Spellbook -->
+            <div id="content-spells" class="spellbook content-tab">
+                <header role="group" class="modifier-select form-group flexrow">
+                    <label>Spellcasting Ability</label>
+                    <select class="ftc-select" data-edit="attributes.spellcasting.current" data-selected="int">
+                        <option value="">None</option>
+                        <option value="str">Strength</option>
+                        <option value="dex">Dexterity</option>
+                        <option value="con">Constitution</option>
+                        <option value="int" selected="selected">Intelligence</option>
+                        <option value="wis">Wisdom</option>
+                        <option value="cha">Charisma</option>
+                    </select>
+                </header>
+
+                <section class="spellbook-spells">
+                    <blockquote class="compendium">Add spells from the compendium.</blockquote>
+
+                    <footer class="ability-controls item-header">
+                        <div class="ftc-item-add">
+                            <span class="glyphicon glyphicon-plus"></span> Add Spell
+                        </div>
+                    </footer>
+                </section>
+            </div>
+
+            <div id="content-traits" class="content-tab">
+                <div class="character-traits">
+
+    <div role="group" class="form-group flexrow">
+        <label>Size</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.size.current" data-dtype="str" value="" placeholder="Medium" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Damage Immunities</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.di.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Damage Resistances</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.dr.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Condition Immunities</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.ci.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Damage Vulnerabilities</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.dv.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Senses</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.senses.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="form-group flexrow">
+        <label>Languages</label>
+        <input type="text" class="ftc-edit" tabindex="0" data-edit="traits.languages.current" data-dtype="str" value="" placeholder="None" data-initial="">
+    </div>
+
+    <div role="group" class="textarea-group flexrow">
+        <label>Traits</label>
+        <textarea class="ftc-textarea" tabindex="0" data-dtype="str" data-edit="personality.traits.current"></textarea>
+    </div>
+
+    <div role="group" class="textarea-group flexrow">
+        <label></label>
+        <textarea class="ftc-textarea trait-ideals" tabindex="0" data-dtype="str" data-edit="personality.ideals.current"></textarea>
+    </div>
+
+    <div role="group" class="textarea-group flexrow">
+        <label></label>
+        <textarea class="ftc-textarea trait-bonds" tabindex="0" data-dtype="str" data-edit="personality.bonds.current"></textarea>
+    </div>
+
+    <div role="group" class="textarea-group flexrow">
+        <label></label>
+        <textarea class="ftc-textarea trait-flaws" tabindex="0" data-dtype="str" data-edit="personality.flaws.current"></textarea>
+    </div>
+</div>
+
+            </div>
+
+            <div id="content-biography" class="content-tab">
+                <span class="glyphicon glyphicon-edit ftc-textfield-edit"></span>
+                <div class="biography ftc-textfield" data-edit="info.notes.current">
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <aside class="ftc-sheet-sidebar flexcolumn">
+        <div class="ftc-sheet-profile">
+            <img class="profile-image ftc-image" data-edit="info.img.current" src="/custom//Crimson Throne/Tokens/Archbanker_Darb_Tuttle.png">
+            <img class="profile-image token-image ftc-image" data-edit="info.img.min" src="">
+        </div>
+
+        <!-- SIDEBAR TABS -->
+        <ul class="sheet-tabs" id="sidebar-tabs">
+            <li id="tab-abilities" class="sheet-tab tab-active">Abilities</li>
+            <li id="tab-skills" class="sheet-tab">Skills</li>
+            <li id="tab-feats" class="sheet-tab">Feats</li>
+        </ul>
+
+        <div id="content-abilities" class="content-tab tab-active">
+            <ol class="abilities-list">
+                <li class="ability ability-str" data-ability="str">
+    <label class="ftc-rollable">Strength</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.str.current" value="5" data-initial="5">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(-3)</span>
+</li>
+<li class="ability ability-dex" data-ability="dex">
+    <label class="ftc-rollable">Dexterity</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.dex.current" value="17" data-initial="17">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(+3)</span>
+</li>
+<li class="ability ability-con" data-ability="con">
+    <label class="ftc-rollable">Constitution</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.con.current" value="11" data-initial="11">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(+0)</span>
+</li>
+<li class="ability ability-int" data-ability="int">
+    <label class="ftc-rollable">Intelligence</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.int.current" value="10" data-initial="10">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(+0)</span>
+</li>
+<li class="ability ability-wis" data-ability="wis">
+    <label class="ftc-rollable">Wisdom</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.wis.current" value="17" data-initial="17">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(+3)</span>
+</li>
+<li class="ability ability-cha" data-ability="cha">
+    <label class="ftc-rollable">Charisma</label>
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="abilities.cha.current" value="11" data-initial="11">
+    <span class="ability-mod ftc-tooltip" title="This is the modifier">(+0)</span>
+</li>
+
+            </ol>
+            <div class="attributes">
+    <div class="attribute initiative">
+        <header>Initiative</header>
+        <div class="attribute-value">
+            <span>+3.17</span>
+        </div>
+        <footer class="initiative-bonus">
+            <label>Bonus:</label>
+            <input class="ftc-edit" type="text" tabindex="0" value="" data-edit="attributes.initiative.current" data-dtype="str" data-autosize="10" placeholder="0" data-initial="" style="width: 10px;">
+        </footer>
+    </div>
+
+    <div class="attribute speed">
+        <header>Movement Speed</header>
+        <div class="attribute-value">
+            <input class="ftc-edit" type="text" tabindex="0" data-autosize="11" placeholder="30" data-edit="attributes.speed.current" value="" data-initial="" style="width: 11px;">
+            <span> Ft.</span>
+        </div>
+        <footer>
+            <input class="ftc-edit" type="text" tabindex="0" data-edit="attributes.speed.extra" data-dtype="str" value="" placeholder="Climb / Swim" data-initial="">
+        </footer>
+    </div>
+</div>
+            <footer class="sheet-options flexrow">
+    <div class="option">
+        <input type="checkbox" class="ftc-checkbox npc-toggle" value="" data-edit="_flags.npc">
+        <label>NPC</label>
+    </div>
+    <div class="option">
+        <input type="checkbox" class="ftc-checkbox" value="" data-edit="_flags.temp">
+        <label>Temporary</label>
+    </div>
+</footer>
+
+        </div>
+
+        <div id="content-skills" class="content-tab">
+            <ol class="skills-list">
+                <li class="skill skill-acr" data-skill="acr">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.acr.current" value="4" data-initial="4">
+    <label class="ftc-rollable">Acrobatics</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+7)</span>
+</li>
+<li class="skill skill-app" data-skill="app">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.app.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Appraise</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-blu" data-skill="blu">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.blu.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Bluff</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-cli" data-skill="cli">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.cli.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Climb</label> <span class="skill-ability">str</span>
+    <span class="skill-mod">(-3)</span>
+</li>
+<li class="skill skill-cra" data-skill="cra">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.cra.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Craft</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-dip" data-skill="dip">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.dip.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Diplomacy</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-did" data-skill="did">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.did.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Disable Device</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-dis" data-skill="dis">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.dis.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Disguise</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-esc" data-skill="esc">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.esc.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Escape Artist</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-fly" data-skill="fly">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.fly.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Fly</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-han" data-skill="han">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.han.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Handle Animal</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-hea" data-skill="hea">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.hea.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Heal</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-int" data-skill="int">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.int.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Intimidate</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kar" data-skill="kar">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kar.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (arcana)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kdu" data-skill="kdu">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kdu.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (dungeoneering)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-ken" data-skill="ken">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.ken.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (engineering)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-khi" data-skill="khi">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.khi.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (history)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kge" data-skill="kge">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kge.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (geography)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-klo" data-skill="klo">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.klo.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (local)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kna" data-skill="kna">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kna.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (nature)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kno" data-skill="kno">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kno.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (nobility)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kpl" data-skill="kpl">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kpl.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (planes)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-kre" data-skill="kre">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.kre.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Knowledge (religion)</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-lin" data-skill="lin">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.lin.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Linguistics</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-per" data-skill="per">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.per.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Perception</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-pfm" data-skill="pfm">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.pfm.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Perform</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-pro" data-skill="pro">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.pro.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Profession</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-rid" data-skill="rid">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.rid.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Ride</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-sen" data-skill="sen">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.sen.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Sense Motive</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-sle" data-skill="sle">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.sle.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Sleight of Hand</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-spe" data-skill="spe">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.spe.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Spellcraft</label> <span class="skill-ability">int</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+<li class="skill skill-ste" data-skill="ste">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.ste.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Stealth</label> <span class="skill-ability">dex</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-sur" data-skill="sur">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.sur.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Survival</label> <span class="skill-ability">wis</span>
+    <span class="skill-mod">(+3)</span>
+</li>
+<li class="skill skill-swi" data-skill="swi">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.swi.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Swim</label> <span class="skill-ability">str</span>
+    <span class="skill-mod">(-3)</span>
+</li>
+<li class="skill skill-use" data-skill="use">
+    <input type="text" class="ftc-edit" data-dtype="posint" data-edit="skills.use.current" value="0" data-initial="0">
+    <label class="ftc-rollable">Use Magic Device</label> <span class="skill-ability">cha</span>
+    <span class="skill-mod">(+0)</span>
+</li>
+
+            </ol>
+        </div>
+
+        <div id="content-feats" class="content-tab">
+            <ol class="feats item-list ui-sortable" data-item-type="Feat" data-item-container="feats">
+                <blockquote class="compendium">Add feats from the compendium.</blockquote>
+            </ol>
+            <footer class="feat-controls item-header">
+                <div class="ftc-item-add">
+                    <span class="glyphicon glyphicon-plus"></span> Add Feat
+                </div>
+            </footer>
+        </div>
+    </aside>
+</section>
